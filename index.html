@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Answer Key: Workbook 6.1 - ECG AI Interpretation</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary-blue: #2C5F7D;
+            --light-blue: #52B5E5;
+            --success-green: #2C5F2D;
+            --warning-yellow: #FFC107;
+            --page-bg: #F8F9FA;
+            --text-dark: #212529;
+        }
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: var(--text-dark); background: var(--page-bg); }
+        .header { background: linear-gradient(135deg, var(--light-blue), var(--primary-blue)); color: white; padding: 40px 20px; text-align: center; }
+        .header h1 { font-size: 2.2rem; margin-bottom: 10px; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+        .answer-section { background: white; padding: 30px; border-radius: 12px; margin: 30px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.08); border-left: 5px solid var(--primary-blue); }
+        .exercise-title { font-size: 1.8rem; color: var(--primary-blue); margin-bottom: 20px; border-bottom: 3px solid var(--light-blue); padding-bottom: 10px; }
+        .question { font-size: 1.1rem; font-weight: 600; color: var(--primary-blue); margin: 20px 0 10px 0; }
+        .answer { background: #E8F5E9; padding: 20px; border-radius: 8px; margin: 10px 0 20px 0; border-left: 4px solid var(--success-green); }
+        .clinical-pearl { background: #E3F2FD; padding: 15px; border-radius: 6px; margin: 10px 0; border-left: 4px solid var(--light-blue); }
+        .correct-choice { background: #C8E6C9; padding: 10px; border-radius: 6px; margin: 5px 0; font-weight: 600; }
+        ul, ol { margin-left: 25px; line-height: 1.8; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        th, td { padding: 12px; border: 1px solid #DDD; text-align: left; }
+        th { background: var(--primary-blue); color: white; }
+        .footer { background: var(--primary-blue); color: white; padding: 30px 20px; text-align: center; margin-top: 60px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📋 Answer Key: Workbook 6.1</h1>
+        <p style="font-size: 1.2rem; margin-top: 10px;">ECG AI Interpretation</p>
+        <p style="margin-top: 10px; opacity: 0.9;">Module 2: Clinical Applications | Week 6</p>
+    </div>
+
+    <div class="container">
+        <!-- EXERCISE 1 -->
+        <div class="answer-section">
+            <h2 class="exercise-title">Exercise 1: AI-Detected Hyperkalemia</h2>
+            
+            <div class="question">Question 1.1: What ECG features does AI use to detect hyperkalemia?</div>
+            <div class="answer">
+                <strong>ECG Features of Hyperkalemia (K+ 6.3 mEq/L):</strong>
+                <p><strong>Progressive ECG Changes by Potassium Level:</strong></p>
+                <table>
+                    <tr>
+                        <th>K+ Level</th>
+                        <th>ECG Changes</th>
+                    </tr>
+                    <tr>
+                        <td><strong>5.5-6.5 mEq/L</strong><br>(Mild-Moderate)</td>
+                        <td>
+                            • Tall, peaked T waves (narrow base, tent-shaped)<br>
+                            • Shortened QT interval<br>
+                            • PR interval may begin to prolong
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>6.5-7.5 mEq/L</strong><br>(Moderate-Severe)</td>
+                        <td>
+                            • Prolonged PR interval (>200 ms)<br>
+                            • QRS widening (>100 ms)<br>
+                            • Decreased P wave amplitude<br>
+                            • Flattened or absent P waves
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>>7.5 mEq/L</strong><br>(Severe-Critical)</td>
+                        <td>
+                            • Marked QRS widening (>120 ms)<br>
+                            • Sine wave pattern (pre-arrest)<br>
+                            • Complete loss of P waves<br>
+                            • Ventricular arrhythmias
+                        </td>
+                    </tr>
+                </table>
+                
+                <p><strong>AI Detection Algorithm Focus:</strong></p>
+                <ul>
+                    <li><strong>Peaked T waves:</strong> Most specific early finding
+                        <ul>
+                            <li>Narrow base, symmetrical, tall amplitude</li>
+                            <li>Best seen in precordial leads (V2-V4)</li>
+                            <li>T wave amplitude/T wave duration ratio increased</li>
+                        </ul>
+                    </li>
+                    <li><strong>PR interval prolongation:</strong> Reflects atrial conduction delay
+                        <ul>
+                            <li>AI measures PR across all leads</li>
+                            <li>Detects subtle prolongation (<200ms but increasing)</li>
+                        </ul>
+                    </li>
+                    <li><strong>QRS widening:</strong> Indicates severe hyperkalemia
+                        <ul>
+                            <li>AI compares to patient's baseline if available</li>
+                            <li>Even subtle widening (90→105 ms) is significant</li>
+                        </ul>
+                    </li>
+                    <li><strong>Pattern Recognition:</strong> AI trained on thousands of hyperkalemic ECGs
+                        <ul>
+                            <li>Identifies subtle patterns humans might miss</li>
+                            <li>Integrates all leads simultaneously</li>
+                            <li>Accounts for baseline variations</li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="clinical-pearl">
+                    <strong>💡 Mayo Clinic AI-ECG Hyperkalemia Detection:</strong> Validated study showed sensitivity 90.9%, specificity 94.5% for K+ >5.5 mEq/L. Particularly valuable in ED/dialysis settings where rapid K+ assessment critical. Algorithm works even when traditional ECG features subtle or absent.
+                </div>
+            </div>
+
+            <div class="question">Question 1.2: What is the clinical value of this early alert (AI prediction 15 minutes before lab)?</div>
+            <div class="correct-choice">✅ Correct Answers: A, B, C (Multiple benefits)</div>
+            <div class="answer">
+                <strong>Clinical Value of Early Hyperkalemia Detection:</strong>
+                <p><strong>Time-Critical Benefits:</strong></p>
+                <ol>
+                    <li><strong>Earlier Treatment Initiation (15-30 minute head start):</strong>
+                        <ul>
+                            <li>Can start membrane stabilization (calcium gluconate) immediately based on AI alert</li>
+                            <li>Don't have to wait for lab confirmation to begin therapy</li>
+                            <li>Critical in preventing sudden cardiac death from hyperkalemic arrest</li>
+                        </ul>
+                    </li>
+                    <li><strong>Prevents Deadly Arrhythmias:</strong>
+                        <ul>
+                            <li>Hyperkalemia can progress rapidly to ventricular fibrillation</li>
+                            <li>K+ 6.3 mEq/L → ventricular arrhythmia risk ~5-10%</li>
+                            <li>Early intervention reduces mortality</li>
+                        </ul>
+                    </li>
+                    <li><strong>Triage Priority:</strong>
+                        <ul>
+                            <li>Alerts team to high-risk patient requiring close monitoring</li>
+                            <li>Continuous telemetry/ICU-level care</li>
+                            <li>Stat labs processed faster when clinical concern raised</li>
+                        </ul>
+                    </li>
+                    <li><strong>Clinical Context Integration:</strong>
+                        <ul>
+                            <li>CKD Stage 4 patient → high pre-test probability</li>
+                            <li>Weakness symptom consistent with hyperkalemia</li>
+                            <li>AI alert + clinical context = very high confidence</li>
+                        </ul>
+                    </li>
+                </ol>
+                <p><strong>Treatment Protocol Following AI Alert:</strong></p>
+                <ol>
+                    <li><strong>Immediate (while awaiting labs):</strong>
+                        <ul>
+                            <li>Stat basic metabolic panel</li>
+                            <li>Continuous cardiac monitoring</li>
+                            <li>Prepare calcium gluconate at bedside</li>
+                        </ul>
+                    </li>
+                    <li><strong>If AI confidence >90% and concerning ECG:</strong>
+                        <ul>
+                            <li>Consider empiric calcium gluconate 1g IV (membrane stabilization)</li>
+                            <li>No harm if K+ normal, but prevents arrest if severely elevated</li>
+                        </ul>
+                    </li>
+                    <li><strong>Upon lab confirmation (K+ 6.3):</strong>
+                        <ul>
+                            <li>Insulin + dextrose (shifts K+ intracellularly)</li>
+                            <li>Beta-agonist nebulizer (albuterol)</li>
+                            <li>Sodium polystyrene sulfonate or patiromer (K+ removal)</li>
+                            <li>Dialysis if refractory and CKD Stage 4</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="question">Question 1.3: What are the limitations of AI hyperkalemia detection?</div>
+            <div class="answer">
+                <strong>Limitations and Considerations:</strong>
+                <p><strong>Technical Limitations:</strong></p>
+                <ul>
+                    <li><strong>False Positives (5-10%):</strong>
+                        <ul>
+                            <li>Other causes of peaked T waves: LVH, early repolarization, hyperacute MI</li>
+                            <li>Baseline ECG variations in some patients</li>
+                            <li>Need clinical context to interpret AI alert</li>
+                        </ul>
+                    </li>
+                    <li><strong>False Negatives (10-15%):</strong>
+                        <ul>
+                            <li>Very rapid K+ rise may not show classic ECG changes</li>
+                            <li>Concomitant calcium abnormalities mask hyperkalemia</li>
+                            <li>Underlying bundle branch blocks obscure findings</li>
+                        </ul>
+                    </li>
+                    <li><strong>Quantitative Accuracy:</strong>
+                        <ul>
+                            <li>AI predicts range (5.8-6.5), not exact value</li>
+                            <li>95% confidence intervals can be wide (±0.5-1.0 mEq/L)</li>
+                            <li>Cannot replace laboratory measurement</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><strong>Clinical Context Required:</strong></p>
+                <ul>
+                    <li><strong>Pre-test probability matters:</strong>
+                        <ul>
+                            <li>CKD Stage 4 patient → high probability, high PPV</li>
+                            <li>Young healthy patient → low probability, lower PPV</li>
+                            <li>Always confirm with laboratory K+ measurement</li>
+                        </ul>
+                    </li>
+                    <li><strong>Not a replacement for clinical judgment:</strong>
+                        <ul>
+                            <li>AI is decision support tool, not autonomous diagnosis</li>
+                            <li>Must integrate with symptoms, history, risk factors</li>
+                            <li>Some patients need treatment regardless of exact K+ level</li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="clinical-pearl">
+                    <strong>⚠️ Key Principle:</strong> AI-ECG hyperkalemia detection is a powerful screening tool that accelerates recognition, but laboratory confirmation remains the gold standard. Use AI alerts to guide urgency of workup and monitoring intensity, but always obtain definitive lab values before major treatment decisions (except life-threatening situations where empiric membrane stabilization may be appropriate).
+                </div>
+            </div>
+        </div>
+
+        <!-- EXERCISE 2 -->
+        <div class="answer-section">
+            <h2 class="exercise-title">Exercise 2: AI Prediction of LV Dysfunction</h2>
+            
+            <div class="question">Question 2.1: How can AI predict EF ≤35% from a normal-appearing ECG?</div>
+            <div class="answer">
+                <strong>Deep Learning Detection of Subtle ECG Patterns:</strong>
+                <p><strong>Hidden ECG Features AI Detects:</strong></p>
+                <ol>
+                    <li><strong>Subtle Repolarization Abnormalities:</strong>
+                        <ul>
+                            <li>Minor ST-T wave changes invisible to human eye</li>
+                            <li>Microsecond-level timing differences in depolarization/repolarization</li>
+                            <li>Voltage patterns indicating myocardial scar or fibrosis</li>
+                        </ul>
+                    </li>
+                    <li><strong>QRS Morphology Micropatterns:</strong>
+                        <ul>
+                            <li>Subtle fragmentation within QRS complex</li>
+                            <li>Minor conduction delays (<10 ms) that suggest cardiomyopathy</li>
+                            <li>Vector changes indicating altered activation sequence</li>
+                        </ul>
+                    </li>
+                    <li><strong>P Wave Morphology:</strong>
+                        <ul>
+                            <li>LA enlargement patterns (even mild)</li>
+                            <li>Increased LA size correlates with elevated filling pressures → LV dysfunction</li>
+                            <li>P wave duration and dispersion</li>
+                        </ul>
+                    </li>
+                    <li><strong>R Wave Progression Anomalies:</strong>
+                        <ul>
+                            <li>Subtle anteroseptal scar patterns</li>
+                            <li>Poor R wave progression that doesn't meet criteria for diagnosis</li>
+                            <li>Chest lead voltage patterns indicating remodeling</li>
+                        </ul>
+                    </li>
+                    <li><strong>QT Interval Variability:</strong>
+                        <ul>
+                            <li>Beat-to-beat QT changes</li>
+                            <li>Electrical instability suggesting cardiomyopathy</li>
+                        </ul>
+                    </li>
+                </ol>
+                <p><strong>How Deep Learning Works:</strong></p>
+                <ul>
+                    <li><strong>Training on Massive Datasets:</strong>
+                        <ul>
+                            <li>Mayo Clinic model trained on >50,000 ECG-echo pairs</li>
+                            <li>Learns correlations between ECG patterns and echo-measured EF</li>
+                            <li>Identifies patterns too subtle or complex for human recognition</li>
+                        </ul>
+                    </li>
+                    <li><strong>Multi-Lead Integration:</strong>
+                        <ul>
+                            <li>Analyzes all 12 leads simultaneously</li>
+                            <li>Detects spatial relationships humans can't process</li>
+                            <li>Each lead contributes partial information</li>
+                        </ul>
+                    </li>
+                    <li><strong>Convolutional Neural Networks:</strong>
+                        <ul>
+                            <li>Extracts hierarchical features from raw ECG waveform</li>
+                            <li>Low-level features (edges, peaks) → high-level features (patterns)</li>
+                            <li>"Black box" but highly accurate (AUC 0.92-0.93)</li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="clinical-pearl">
+                    <strong>💡 Mayo Clinic AI-ECG Study:</strong> Published in Nature Medicine 2019. AI predicted EF ≤35% with:
+                    <ul>
+                        <li>Sensitivity: 86.3%</li>
+                        <li>Specificity: 85.7%</li>
+                        <li>AUC: 0.93</li>
+                    </ul>
+                    Could identify patients with asymptomatic LV dysfunction who would benefit from early therapy. Particularly valuable for screening in at-risk populations (diabetes, hypertension, family history).
+                </div>
+            </div>
+
+            <div class="question">Question 2.2: The patient is asymptomatic. Should you order echocardiogram based on AI prediction alone?</div>
+            <div class="correct-choice">✅ Recommended: Yes, order echocardiogram</div>
+            <div class="answer">
+                <strong>Clinical Decision Analysis:</strong>
+                <p><strong>Arguments FOR Ordering Echo:</strong></p>
+                <ol>
+                    <li><strong>High Pre-Test Probability:</strong>
+                        <ul>
+                            <li>55 years old</li>
+                            <li>Hypertension (10 years)</li>
+                            <li>Diabetes</li>
+                            <li>Obesity (BMI 32)</li>
+                            <li>Pre-test probability of LV dysfunction ~8-12% even without AI</li>
+                        </ul>
+                    </li>
+                    <li><strong>AI Performance Characteristics:</strong>
+                        <ul>
+                            <li>Positive Predictive Value ~40-50% in at-risk population</li>
+                            <li>Means 40-50% chance EF truly ≤35%</li>
+                            <li>This is HIGH enough to warrant confirmation</li>
+                        </ul>
+                    </li>
+                    <li><strong>Asymptomatic LV Dysfunction (Stage B HF):</strong>
+                        <ul>
+                            <li>Critical to identify before symptoms develop</li>
+                            <li>Early ACEi/ARB therapy prevents progression to symptomatic HF</li>
+                            <li>Beta-blockers improve outcomes</li>
+                            <li>ICD may be indicated if EF ≤35% (primary prevention)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Cost-Benefit Analysis:</strong>
+                        <ul>
+                            <li>Echo cost: ~$500-800</li>
+                            <li>Non-invasive, no risk</li>
+                            <li>Potential benefit: Identifying treatable cardiomyopathy</li>
+                            <li>Cost of missing asymptomatic LV dysfunction: Progression to symptomatic HF, hospitalizations ($$$)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Guideline Support:</strong>
+                        <ul>
+                            <li>ACC/AHA Stage B HF: Structural heart disease without symptoms</li>
+                            <li>Recommended to screen high-risk patients</li>
+                            <li>AI alert provides objective reason to screen</li>
+                        </ul>
+                    </li>
+                </ol>
+                <p><strong>Recommended Clinical Action:</strong></p>
+                <ol>
+                    <li><strong>Order transthoracic echocardiogram</strong></li>
+                    <li><strong>Obtain BNP/NT-proBNP:</strong>
+                        <ul>
+                            <li>If elevated → increases probability of LV dysfunction</li>
+                            <li>If normal → somewhat reassuring but still get echo</li>
+                        </ul>
+                    </li>
+                    <li><strong>Detailed History:</strong>
+                        <ul>
+                            <li>Any subtle symptoms? (Early fatigue, mild DOE)</li>
+                            <li>Exercise tolerance changes?</li>
+                            <li>Family history of cardiomyopathy?</li>
+                        </ul>
+                    </li>
+                    <li><strong>If Echo Confirms EF ≤35%:</strong>
+                        <ul>
+                            <li>Initiate GDMT (ACEi/ARB or ARNI, beta-blocker, MRA, SGLT2i)</li>
+                            <li>ICD evaluation if non-ischemic cardiomyopathy ≥3 months or ischemic ≥40 days post-MI</li>
+                            <li>Aggressive risk factor modification</li>
+                            <li>Close follow-up</li>
+                        </ul>
+                    </li>
+                </ol>
+                <div class="clinical-pearl">
+                    <strong>💡 Screening Value:</strong> The power of AI-ECG is screening efficiency. Instead of echoing all diabetics with HTN (millions of patients), we can prioritize those with AI-positive ECGs. Even with 50% PPV, we've enriched our screened population 5-10x compared to broad screening. This makes large-scale asymptomatic LV dysfunction screening feasible and cost-effective.
+                </div>
+            </div>
+        </div>
+
+        <!-- EXERCISE 3 -->
+        <div class="answer-section">
+            <h2 class="exercise-title">Exercise 3: AFib Screening with AI</h2>
+            
+            <div class="question">Question 3.1: How can AI detect AFib from sinus rhythm ECG?</div>
+            <div class="answer">
+                <strong>AI Detection of "AFib Fingerprint" in Sinus Rhythm:</strong>
+                <p><strong>Mechanism - Structural/Electrical Remodeling:</strong></p>
+                <ul>
+                    <li><strong>Key Concept:</strong> Patients with paroxysmal AFib have underlying atrial remodeling even when in sinus rhythm</li>
+                    <li><strong>Remodeling Changes Detectable on SR ECG:</strong>
+                        <ul>
+                            <li>Atrial fibrosis → altered conduction</li>
+                            <li>LA enlargement → P wave changes</li>
+                            <li>Electrical instability → micro-variabilities</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><strong>Specific ECG Features AI Detects:</strong></p>
+                <ol>
+                    <li><strong>P Wave Morphology Abnormalities:</strong>
+                        <ul>
+                            <li>Terminal negative portion of P wave in V1 (PTF-V1)</li>
+                            <li>P wave duration >120 ms</li>
+                            <li>Notched or bifid P waves</li>
+                            <li>P wave amplitude variations</li>
+                        </ul>
+                    </li>
+                    <li><strong>P Wave Dispersion:</strong>
+                        <ul>
+                            <li>Variation in P wave duration across leads</li>
+                            <li>Reflects inhomogeneous atrial conduction</li>
+                            <li>Marker of atrial electrical instability</li>
+                        </ul>
+                    </li>
+                    <li><strong>PR Segment Variability:</strong>
+                        <ul>
+                            <li>Beat-to-beat PR interval changes (even subtle)</li>
+                            <li>Suggests autonomic dysfunction</li>
+                            <li>Predicts paroxysmal AFib</li>
+                        </ul>
+                    </li>
+                    <li><strong>Atrial Premature Complexes (APCs):</strong>
+                        <ul>
+                            <li>Frequent APCs predict AFib</li>
+                            <li>AI detects even subtle APCs</li>
+                            <li>APC burden correlates with AFib risk</li>
+                        </ul>
+                    </li>
+                    <li><strong>QRS-T Angle:</strong>
+                        <ul>
+                            <li>Reflects ventricular-atrial electrical relationship</li>
+                            <li>Altered in patients with atrial disease</li>
+                        </ul>
+                    </li>
+                </ol>
+                <p><strong>Mayo Clinic AI-ECG AFib Screening Performance:</strong></p>
+                <table>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Value</th>
+                        <th>Clinical Meaning</th>
+                    </tr>
+                    <tr>
+                        <td>AUC</td>
+                        <td>0.87</td>
+                        <td>Excellent discrimination</td>
+                    </tr>
+                    <tr>
+                        <td>Sensitivity</td>
+                        <td>79%</td>
+                        <td>Catches most patients with paroxysmal AFib</td>
+                    </tr>
+                    <tr>
+                        <td>Specificity</td>
+                        <td>80%</td>
+                        <td>Low false positive rate</td>
+                    </tr>
+                    <tr>
+                        <td>PPV</td>
+                        <td>~20-30%</td>
+                        <td>In general population (depends on prevalence)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="question">Question 3.2: Patient is 72, CHA₂DS₂-VASc = 3. AI predicts 68% probability of paroxysmal AFib. What is your management plan?</div>
+            <div class="answer">
+                <strong>Comprehensive Management Strategy:</strong>
+                <p><strong>Step 1: Confirm AFib with Extended Monitoring</strong></p>
+                <ul>
+                    <li><strong>Recommended: 30-day event monitor or patch</strong>
+                        <ul>
+                            <li>Paroxysmal AFib often brief and infrequent</li>
+                            <li>24-48 hour Holter insufficient (captures only ~50%)</li>
+                            <li>30-day monitoring optimal for detection (~85-90% yield)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Alternative: Insertable cardiac monitor (ICM)</strong>
+                        <ul>
+                            <li>If very high suspicion but initial 30-day negative</li>
+                            <li>Up to 3 years of monitoring</li>
+                            <li>Highest sensitivity for rare paroxysmal AFib</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><strong>Step 2: Risk Stratification During Workup</strong></p>
+                <ul>
+                    <li><strong>CHA₂DS₂-VASc = 3:</strong>
+                        <ul>
+                            <li>Stroke risk: ~3.2% per year WITHOUT anticoagulation</li>
+                            <li>If AFib confirmed → anticoagulation strongly recommended</li>
+                        </ul>
+                    </li>
+                    <li><strong>Echo to assess:</strong>
+                        <ul>
+                            <li>LA size (predictor of AFib burden)</li>
+                            <li>LV function</li>
+                            <li>Valvular disease</li>
+                            <li>LA appendage thrombus (TEE if needed)</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><strong>Step 3: Management Based on Monitoring Results</strong></p>
+                <table>
+                    <tr>
+                        <th>Scenario</th>
+                        <th>Management</th>
+                    </tr>
+                    <tr>
+                        <td><strong>AFib Confirmed</strong></td>
+                        <td>
+                            • Anticoagulation (DOAC preferred)<br>
+                            • Rate vs rhythm control discussion<br>
+                            • Risk factor modification<br>
+                            • Repeat echo in 1 year
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>No AFib Detected</strong></td>
+                        <td>
+                            • Close follow-up (q6 months)<br>
+                            • Repeat monitoring if symptoms develop<br>
+                            • Annual ECG screening<br>
+                            • Consider ICM if very high suspicion
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Frequent APCs Only</strong></td>
+                        <td>
+                            • High AFib risk (>10% burden → consider ablation)<br>
+                            • Close monitoring for progression to AFib<br>
+                            • Aggressive risk factor control<br>
+                            • Lifestyle modifications
+                        </td>
+                    </tr>
+                </table>
+                <p><strong>Step 4: Preventive Strategies (Regardless of Monitoring Result)</strong></p>
+                <ul>
+                    <li><strong>Modifiable Risk Factors:</strong>
+                        <ul>
+                            <li>Hypertension control (target <130/80)</li>
+                            <li>Weight loss if obese</li>
+                            <li>Sleep apnea screening/treatment</li>
+                            <li>Alcohol reduction (<7 drinks/week)</li>
+                            <li>Exercise (moderate, regular)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Patient Education:</strong>
+                        <ul>
+                            <li>Symptom awareness (palpitations, SOB, fatigue)</li>
+                            <li>When to seek evaluation</li>
+                            <li>Stroke risk if AFib develops</li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="clinical-pearl">
+                    <strong>💡 AI-ECG Screening Value:</strong> Even with 68% AI probability and CHA₂DS₂-VASc = 3, do NOT start anticoagulation without documenting AFib. However, this patient warrants aggressive screening (30-day monitor). If AFib confirmed, the AI-ECG alerted us to high-risk patient who might have gone undiagnosed for months/years, potentially preventing stroke.
+                </div>
+            </div>
+        </div>
+
+        <!-- KEY TAKEAWAYS -->
+        <div class="answer-section">
+            <h2 class="exercise-title">Key Takeaways & Clinical Pearls</h2>
+            
+            <div class="clinical-pearl">
+                <strong>🎯 Essential Concepts:</strong>
+                <ol style="line-height: 2;">
+                    <li><strong>AI detects hidden ECG patterns:</strong> Deep learning identifies subtle features invisible to human eye - enables screening for hyperkalemia, LV dysfunction, and paroxysmal AFib from SR ECG.</li>
+                    <li><strong>Hyperkalemia AI saves lives:</strong> 15-minute head start allows earlier treatment, prevents sudden death. Sensitivity >90%, specificity >94%.</li>
+                    <li><strong>Asymptomatic LV dysfunction screening:</strong> AI-ECG can identify Stage B HF before symptoms - enables early GDMT, prevents progression.</li>
+                    <li><strong>AFib "fingerprint" in SR:</strong> Atrial remodeling visible on SR ECG to AI - enables targeted screening of high-risk patients.</li>
+                    <li><strong>AI is decision support, not replacement:</strong> Always confirm AI predictions with appropriate testing (labs for K+, echo for EF, monitoring for AFib).</li>
+                    <li><strong>Clinical context essential:</strong> Pre-test probability and risk factors guide interpretation of AI alerts and subsequent management.</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <h3>Answer Key: Workbook 6.1 - ECG AI Interpretation</h3>
+        <p style="margin-top: 10px;">Module 2: Clinical Applications | Week 6</p>
+        <p style="margin-top: 15px;">📧 support@cardioailive.com | 📱 +1 (614) 967-8728</p>
+        <p style="margin-top: 30px; opacity: 0.7;">© 2024 Cardio AI Global Leadership Program</p>
+    </div>
+</body>
+</html>
